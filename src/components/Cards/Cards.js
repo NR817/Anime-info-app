@@ -17,13 +17,15 @@ const Cards = ({ data, buttonClicked , name}) => {
               />
               <div className="content padding">
                 <div className="fs-4 fw-bold mb-4">
-                  {attributes.titles.en_jp
+                  {attributes.titles.en ?
+                  attributes.titles.en : attributes.titles.en_jp
                     ? attributes.titles.en_jp.length > 15
                       ? `${attributes.titles.en_jp.slice(0, 15)}...`
                       : attributes.titles.en_jp
                     : attributes.titles.en_cn.length > 15
                     ? `${attributes.titles.en_cn.slice(0, 15)}...`
-                    : attributes.titles.en_cn}
+                    : attributes.titles.en_cn
+                  }
                 </div>
                 <div className="">
                   <div className="fs-6">Number of {attributes.episodeCount ? 'Episodes:' : 'Volumes:'}</div>

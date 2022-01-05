@@ -38,7 +38,7 @@ const Navbar = () => {
           id="navbarNavAltMarkup"
         >
           <div className="navbar-nav fs-5">
-            <NavLink to='/' activeClassName='active' className="nav-link">
+            <NavLink to='/' className="nav-link">
               Anime
             </NavLink>
             <NavLink to='/manga' className="nav-link">

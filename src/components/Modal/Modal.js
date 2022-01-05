@@ -5,7 +5,6 @@ const modalElement = document.getElementById('modal-root');
 
 const Modal = ({ show, buttonClicked }) => {
 
-  console.log(show)
 return( 
   show ? createPortal(
   <React.Fragment>
