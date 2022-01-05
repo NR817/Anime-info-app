@@ -1,14 +1,11 @@
 import React from "react";
 import "./Cards.css";
 
-const Cards = ({ data, buttonClicked}) => {
-
-
+const Cards = ({ data, buttonClicked , name}) => {
   const renderedAnime = () => {
-
     if (data) {
-      return data.map((anime) => {
-        const { id, attributes } = anime;
+      return data.map((element) => {
+        const { id, attributes } = element;
 
         return (
           <div key={id} className="col-4 mb-3 position-relative">
@@ -29,13 +26,24 @@ const Cards = ({ data, buttonClicked}) => {
                     : attributes.titles.en_cn}
                 </div>
                 <div className="">
-                  <div className="fs-6">Number of Episodes:</div>
+                  <div className="fs-6">Number of {attributes.episodeCount ? 'Episodes:' : 'Volumes:'}</div>
                   <div className="fs-5">
-                    {attributes.episodeCount ? attributes.episodeCount : 1}
+                    {attributes.episodeCount
+                      ? attributes.episodeCount > 1
+                        ? attributes.episodeCount
+                        : 1
+                      : attributes.volumeCount > 1 ? 
+                      attributes.volumeCount :
+                      1
+                    }
                   </div>
                 </div>
                 <button
-                  type="button" className="btn btn-primary" id="shoutBtn" onClick={buttonClicked}>
+                  type="button"
+                  className="btn btn-primary"
+                  id="shoutBtn"
+                  onClick={buttonClicked}
+                >
                   Description
                 </button>
               </div>
@@ -65,7 +73,7 @@ const Cards = ({ data, buttonClicked}) => {
         );
       });
     } else {
-      return "No Anime Found...";
+      return `No ${name} Found...`;
     }
   };
   return <>{renderedAnime()}</>;

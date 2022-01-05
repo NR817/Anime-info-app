@@ -14,7 +14,7 @@ return(
       <div className="modal">
         <div className="modal-header">
           <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={buttonClicked}>
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="false">&times;</span>
           </button>
         </div>
         <p>

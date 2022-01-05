@@ -1,7 +1,7 @@
 import React from "react";
 import "./Search.css";
 
-const Search = ({ setSearch, setPageNumber }) => {
+const Search = ({ setSearch, setPageNumber, name }) => {
   return (
     <form className="d-flex justify-content-center gap-4 mb-5">
       <input
@@ -9,7 +9,7 @@ const Search = ({ setSearch, setPageNumber }) => {
           setPageNumber(1);
           setSearch(e.target.value);
         }}
-        placeholder="Search Anime"
+        placeholder={`Search ${name}`}
         type="text"
         className="input"
       />

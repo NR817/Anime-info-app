@@ -10,8 +10,8 @@ import Filters from "./components/Filters/Filters";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 import Navbar from "./components/Navbar/Navbar";
-import Episodes from "./Pages/Episodes";
-import Locations from "./Pages/Locations";
+import Manga from "./Pages/Manga";
+import Contact from "./Pages/Contact";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/episodes" element={<Episodes />} />
-        <Route path="/locations" element={<Locations />} />
+        <Route path="/manga" element={<Manga />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
@@ -44,7 +44,7 @@ const Home = () => {
   const buttonClickedHandler = () => {
     setShowState((showState) => showState = !showState )
  }
- 
+
   const api = `https://kitsu.io/api/edge/anime?page[offset]=${offset}`;
   useEffect(() => {
     let isMounted = true;
@@ -75,7 +75,7 @@ const Home = () => {
 
   return (
     <div className="App">
-      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
+      <Search name='Anime' setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container">
         <div className="row">
           <Filters
@@ -86,7 +86,7 @@ const Home = () => {
           />
           <div className="col-8">
             <div className="row">
-              <Cards data={data} buttonClicked={buttonClickedHandler}/>
+              <Cards name='Anime' data={data} buttonClicked={buttonClickedHandler}/>
             </div>
           </div>
         </div>
