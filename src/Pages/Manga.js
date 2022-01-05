@@ -8,7 +8,7 @@ import Search from "../components/Search/Search"
 import Modal from "../components/Modal/Modal"
 
 const Manga = () => {
-  const [dataPerPage] = useState(10);
+  const [dataPerPage] = useState(9);
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
@@ -21,7 +21,7 @@ const Manga = () => {
     setShowState((showState) => showState = !showState )
  }
 
-  const api = `https://kitsu.io/api/edge/manga?page[offset]=${offset}`;
+  const api = `https://kitsu.io/api/edge/manga?page[offset]=${offset}&page[limit]=${dataPerPage}`;
   useEffect(() => {
     let isMounted = true;
     (async function () {

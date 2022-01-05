@@ -45,7 +45,7 @@ const Home = () => {
     setShowState((showState) => showState = !showState )
  }
 
-  const api = `https://kitsu.io/api/edge/anime?page[offset]=${offset}`;
+  const api = `https://kitsu.io/api/edge/anime?page[offset]=${offset}&page[limit]=${dataPerPage}`;
   useEffect(() => {
     let isMounted = true;
     (async function () {
