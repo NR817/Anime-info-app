@@ -1,7 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Cards.css";
 
-const Cards = ({ data, buttonClicked , name}) => {
+const Cards = ({ data, name, handleClickedId }) => {
+
+
+
   const renderedAnime = () => {
     if (data) {
       return data.map((element) => {
@@ -19,40 +23,43 @@ const Cards = ({ data, buttonClicked , name}) => {
                 <div className="fs-4 fw-bold mb-4">
                   {(() => {
                     if (attributes.titles.en) {
-                     if (attributes.titles.en.length > 15) return `${attributes.titles.en.slice(0, 15)}...`
-                      else return attributes.titles.en
+                      if (attributes.titles.en.length > 15)
+                        return `${attributes.titles.en.slice(0, 15)}...`;
+                      else return attributes.titles.en;
                     } else if (attributes.titles.en_jp) {
-                      if (attributes.titles.en_jp.length > 15) return `${attributes.titles.en_jp.slice(0, 15)}...`
-                      else return attributes.titles.en_jp
-                    } else return attributes.titles.en_cn.length > 15
-                    ? `${attributes.titles.en_cn.slice(0, 15)}...`
-                    : attributes.titles.en_cn
-                    }
-                  )()}
-
-                  
+                      if (attributes.titles.en_jp.length > 15)
+                        return `${attributes.titles.en_jp.slice(0, 15)}...`;
+                      else return attributes.titles.en_jp;
+                    } else
+                      return attributes.titles.en_cn.length > 15
+                        ? `${attributes.titles.en_cn.slice(0, 15)}...`
+                        : attributes.titles.en_cn;
+                  })()}
                 </div>
                 <div className="">
-                  <div className="fs-6">Number of {attributes.episodeCount ? 'Episodes:' : 'Volumes:'}</div>
+                  <div className="fs-6">
+                    Number of{" "}
+                    {attributes.episodeCount ? "Episodes:" : "Volumes:"}
+                  </div>
                   <div className="fs-5">
                     {attributes.episodeCount
                       ? attributes.episodeCount > 1
                         ? attributes.episodeCount
                         : 1
-                      : attributes.volumeCount > 1 ? 
-                      attributes.volumeCount :
-                      1
-                    }
+                      : attributes.volumeCount > 1
+                      ? attributes.volumeCount
+                      : 1}
                   </div>
                 </div>
-                <button
+                <Link
+                  to={`/anime/${id}`}
                   type="button"
                   className="btn btn-primary"
-                  id="shoutBtn"
-                  onClick={buttonClicked}
+                  id={id}
+                  onClick={e => handleClickedId(e.target.id)}
                 >
                   Description
-                </button>
+                </Link>
               </div>
             </div>
             {(() => {
