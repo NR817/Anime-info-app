@@ -29,7 +29,7 @@ function App() {
 }
 
 const Home = () => {
-  const [dataPerPage] = useState(10);
+  const [dataPerPage] = useState(9);
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
