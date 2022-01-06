@@ -17,7 +17,6 @@ function App() {
   const handleData = (res) => {
     setData(res);
 }
-  console.log(data);
 const handleClickedId = (id) => {
   setClickedId(id)
 }
