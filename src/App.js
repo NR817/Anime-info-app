@@ -14,10 +14,10 @@ function App() {
   const [data, setData] = useState([])
   const [clickedId, setClickedId] = useState(null);
 
-  const handleData = (data) => {
-    setData(data);
+  const handleData = (res) => {
+    setData(res);
 }
-
+  console.log(data);
 const handleClickedId = (id) => {
   setClickedId(id)
 }

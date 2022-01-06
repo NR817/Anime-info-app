@@ -37,7 +37,6 @@ const Home = ({handleData, handleClickedId}) => {
             },
           });
           if (isMounted) setFetchedData(data);
-          handleData(data.data)
         } catch (err) {
           setFetchedData(err);
         }
@@ -45,8 +44,10 @@ const Home = ({handleData, handleClickedId}) => {
       return () => {
         isMounted = false;
       };
-    }, [ageRating, api, category, handleData, search, seasonYear]);
-  
+    }, [ageRating, api, category, search, seasonYear]);
+    
+    handleData(data)
+
     return (
       <div className="App">
         <Search name='Anime' setPageNumber={setPageNumber} setSearch={setSearch} />
